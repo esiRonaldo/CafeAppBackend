@@ -1,7 +1,15 @@
 package com.inn.cafe.com.inn.cafe.utils;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 public class CafeUtils {
-    public static final String SOMETHING_WENT_WRONG = "Something Went Wrong";
-    public static final String INVALID_DATA = "Invalid Data";
-    public static final String EMAIL_ALREADY_EXISTS = "Email already exists.";
+    private CafeUtils() {
+
+    }
+
+    public static ResponseEntity<String> getResponseEntity(String responseMessage, HttpStatus httpStatus) {
+        return new ResponseEntity<>("{\"message\":\"" + responseMessage + "\"}", httpStatus);
+
+    }
 }
